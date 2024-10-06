@@ -1,7 +1,7 @@
 /* GET home page */
-const index = function(req, res){
+const sightings = function(req, res){
     res.render('index', { title: 'Next Step'});
 };
 module.exports = {
-    index
+    sightings
 };

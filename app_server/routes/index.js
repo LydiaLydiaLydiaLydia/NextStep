@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const ctrlMain = require('../controllers/main');
+const ctrlAccounts = require('../controllers/accounts');
+const ctrlData = require('../controllers/data');
 
-/* GET home page. */
-router.get('/', ctrlMain.index);
+/* Home/Sightings page */
+router.get('/', ctrlData.sightings);
+/* Accounts pages */
+router.get('/register', ctrlAccounts.register);
+router.get('/login', ctrlAccounts.login);
 
 module.exports = router;
