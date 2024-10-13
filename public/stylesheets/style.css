@@ -1,15 +1,42 @@
 @import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
 h1, h2, h3, h4, h5, h6 {
-font-family: 'Lobster', cursive;
+font-family: 'courier', monospace;
 }
 .navbar-brand {
-font-family: 'Lobster', cursive;
+font-family: 'courier', monospace;
+font-size: x-large;
+font-weight: bolder;
 }
 legend {
-font-family: 'Lobster', cursive;
+font-family: 'courier', monospace;
 }
 body {
 font-family: "Cabin", Arial, sans-serif;
 color: #ffffff;
-background-color: #108a93;
+background-color: #0d7045;
+}
+.card{
+    background-color: rgb(42, 53, 23);
+    color: aliceblue;
+    padding: 3%;
+    margin-top: 3%;
+}
+.card h4{
+    color:rgb(220, 226, 211);
+    font-weight: 900;
+}
+.username{
+    font-size: xx-small;
+    text-align: center;
+}
+.badge{
+    background-color: lightgreen;
+    color:#0d7045;
+}
+.sighting{
+    padding: 2%;
+    background-color: rgb(185, 239, 185);
+    color: rgb(42, 53, 23);
+    border-radius: 5px;
+    margin-top: 3%;
 }

@@ -1,10 +1,10 @@
 /* GET login page */
 const login = function(req, res){
-    res.render('index', { title: 'Log In'});
+    res.render('register', { title: 'Log In'});
 };
 /* GET register page */
 const register = function(req, res){
-    res.render('index', { title: 'Register'});
+    res.render('register', { title: 'Register'});
 };
 module.exports = {
     login,
