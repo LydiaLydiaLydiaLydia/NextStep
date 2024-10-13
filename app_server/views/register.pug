@@ -1,1 +1,24 @@
 extends layout
+
+block content 
+    .container
+        .row
+            .col-12.col-md-6
+                .card
+                    form.col-12
+                        .form-group 
+                            label(for="userUsername")
+                            input.form-control#userUsername(type = "text" placeholder = "Create username")
+                        .form-group 
+                            label(for="userEmail")
+                            input.form-control#userEmail(type="email" aria-describedby="emailHelp" placeholder="Enter email")
+                        .form-group
+                            label(for="userPassword")
+                            input.form-control#userPassword(type = "password" placeholder="Password")
+                        button.btn.btn-primary(type="submit") Submit
+            .col-12.col-md-6 
+                .card 
+                    h2 Already a Member?
+                    a(href="/login/") Click here to log in 
+                p Register to jump feet first into a world of squatch
+                

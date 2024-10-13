@@ -5,7 +5,10 @@ block content
     .row
       .col-12.col-md-2.col-lg-2
         .dropdown 
-          button.btn.btn-secondary.dropdown-toggle(type = "button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Order by 
+          button.btn.btn-secondary.dropdown-toggle(data-bs-toggle="dropdown" type = "button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Order by 
+            .dropdown-menu(aria-labelledby="dropdownMenuButton")
+              .dropdown-item Most recent 
+              .dropdown-item Verified
       .col-12.col-md-10.col-lg-10
         .card 
           .card-block 

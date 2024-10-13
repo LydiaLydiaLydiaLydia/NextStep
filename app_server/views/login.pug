@@ -1,0 +1,21 @@
+extends layout
+
+block content 
+    .container
+        .row
+            .col-12.col-md-6
+                .card
+                    form.col-12
+                        .form-group 
+                            label(for="userUsername")
+                            input.form-control#userUsername(type = "text" placeholder = "Username")
+                        .form-group
+                            label(for="userPassword")
+                            input.form-control#userPassword(type = "password" placeholder="Password")
+                        button.btn.btn-primary(type="submit") Log In
+            .col-12.col-md-6 
+                .card 
+                    h2 Not a Member?
+                    a(href="/register/") Click here to Register
+                p Log in to jump feet first into a world of squatch
+            
