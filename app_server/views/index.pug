@@ -25,8 +25,9 @@ block content
                 p.username #{sighting.username} 
             .row 
               .col-10
-              each bigPic in sighting.bigPics
-                img.col-12.col-md-12.col-lg-12.img-fluid(src=bigPic)
+                img.col-12.img-fluid(src=sighting.mainPic)
+                each bigPic in sighting.bigPics
+                  img.col-12.col-md-6.col-lg-6.img-fluid(src=bigPic)
               .col-2 
                 span.badge.badge-pill.badge-default.float-right verified
             .row
