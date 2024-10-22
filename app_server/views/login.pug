@@ -12,10 +12,10 @@ block content
                         .form-group
                             label(for="userPassword")
                             input.form-control#userPassword(type = "password" placeholder="Password")
-                        button.btn.btn-primary(type="submit") Log In
+                        button.btn.btn-primary(type="submit") #{title}
             .col-12.col-md-6 
+                h3 #{subtitle} 
                 .card 
-                    h2 Not a Member?
-                    a(href="/register/") Click here to Register
-                p Log in to jump feet first into a world of squatch
+                    h2 #{message}
+                    a(href=link.link) #{link.text}
             
