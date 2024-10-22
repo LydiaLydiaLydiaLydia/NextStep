@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  .row.banner 
+    .col-12 
+      h2 #{pageHeader.title}
+        small #{pageHeader.strapline}
   .container 
     .row
       .col-12.col-md-2.col-lg-2
@@ -10,21 +14,21 @@ block content
               .dropdown-item Most recent 
               .dropdown-item Verified
       .col-12.col-md-10.col-lg-10
+      each sighting in sightings
         .card 
           .card-block 
             .row 
               .col-10 
-                h4 Old Copper Mine 
+                h4 #{sighting.title} 
               .col-2 
-                img.img-fluid.rounded-circle(src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.renewinstitute.pl%2Fwp-content%2Fuploads%2F2022%2F03%2Fbeauty-portrait-ginger-woman-with-long-hair-posing-with-green-leaf-1-1-100x100-1.png&f=1&nofb=1&ipt=309edf12fdf12b0a6310536effa71a22ed5e318e1e72f3ce57fab78989a446e6&ipo=images")
-                p.username username1 
+                img.img-fluid.rounded-circle(src=sighting.profilePic)
+                p.username #{sighting.username} 
             .row 
               .col-10
-                img.col-12.col-md-12.col-lg-12.img-fluid(src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.indy100.com%2Fmedia-library%2Fdramatic-footage-claims-to-show-new-sighting-of-bigfoot-so-do.jpg%3Fid%3D33440809%26width%3D1200%26height%3D600%26coordinates%3D0%252C100%252C0%252C101&f=1&nofb=1&ipt=4ccee9aab8897680e0d7944a489450ea54a0861175297c89c5f94242a3a4be09&ipo=images")   
-                img.col-12.col-md-6.col-lg-6.img-fluid(src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.indy100.com%2Fmedia-library%2Fdramatic-footage-claims-to-show-new-sighting-of-bigfoot-so-do.jpg%3Fid%3D33440809%26width%3D1200%26height%3D600%26coordinates%3D0%252C100%252C0%252C101&f=1&nofb=1&ipt=4ccee9aab8897680e0d7944a489450ea54a0861175297c89c5f94242a3a4be09&ipo=images")
-                img.col-12.col-md-6.col-lg-6.img-fluid(src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.indy100.com%2Fmedia-library%2Fdramatic-footage-claims-to-show-new-sighting-of-bigfoot-so-do.jpg%3Fid%3D33440809%26width%3D1200%26height%3D600%26coordinates%3D0%252C100%252C0%252C101&f=1&nofb=1&ipt=4ccee9aab8897680e0d7944a489450ea54a0861175297c89c5f94242a3a4be09&ipo=images")
+              each bigPic in sighting.bigPics
+                img.col-12.col-md-12.col-lg-12.img-fluid(src=bigPic)
               .col-2 
                 span.badge.badge-pill.badge-default.float-right verified
-            p.sighting Bigfoot, also commonly referred to as Sasquatch, is a large and hairy human-like mythical creature said to inhabit forests in North America, particularly in the Pacific Northwest. Bigfoot is featured in both American and Canadian folklore, and since the mid-20th century has grown into a cultural icon, permeating popular culture and becoming the subject of its own distinct subculture.
-
+            .row
+              p.col-10.sighting #{sighting.text}
 
