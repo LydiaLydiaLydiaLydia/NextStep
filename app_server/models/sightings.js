@@ -1,11 +1,26 @@
 const mongoose = require('mongoose');
 const sightingsSchema = new mongoose.Schema({
-    title: String,
-    username: String,
+    title: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
     text: String,
-    timePosted: Date,
-    coords: [Number],
-    isVerified: Boolean,
+    timePosted: {
+        type: Date,
+        'default': Date.now
+    },
+    coords: {
+        type: [Number],
+        index: '2dsphere'
+    },
+    isVerified: {
+        type: Boolean,
+        'default': false
+    },
     profilePic: {
         data: Buffer,
         contentType: String
@@ -17,3 +32,4 @@ const sightingsSchema = new mongoose.Schema({
         }
     ]
 });
+mongoose.model('Sighting', sightingsSchema);
