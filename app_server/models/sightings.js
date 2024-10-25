@@ -1,11 +1,21 @@
 const mongoose = require('mongoose');
+const accountSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+})
 const sightingsSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
     },
-    username: {
-        type: String,
+    postedBy: {
+        type: accountSchema,
         required: true
     },
     text: String,
@@ -17,10 +27,7 @@ const sightingsSchema = new mongoose.Schema({
         type: [Number],
         index: '2dsphere'
     },
-    isVerified: {
-        type: Boolean,
-        'default': false
-    },
+    verifiedBy: [accountSchema],
     profilePic: {
         data: Buffer,
         contentType: String
