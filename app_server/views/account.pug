@@ -1,4 +1,9 @@
 extends layout
+mixin regEmail(isReg)
+    if(isReg)
+        .form-group 
+            label(for="userEmail")
+            input.form-control#userEmail(type="email" aria-describedby="emailHelp" placeholder="Enter email")
 
 block content 
     .container
@@ -9,12 +14,10 @@ block content
                         .form-group 
                             label(for="userUsername")
                             input.form-control#userUsername(type = "text" placeholder = "Create username")
-                        .form-group 
-                            label(for="userEmail")
-                            input.form-control#userEmail(type="email" aria-describedby="emailHelp" placeholder="Enter email")
+                        +regEmail(isReg)
                         .form-group
                             label(for="userPassword")
-                            input.form-control#userPassword(type = "password" placeholder="Password")
+                            input.form-control#userPassword(type = "password" placeholder="Create password")
                         button.btn.btn-primary(type="submit") #{title}
             .col-12.col-md-6
                 h3 #{subtitle} 

@@ -1,4 +1,5 @@
 extends layout
+include mixins/badges.pug
 
 block content
   .row.banner 
@@ -28,8 +29,8 @@ block content
                 img.col-12.img-fluid(src=sighting.mainPic)
                 each bigPic in sighting.bigPics
                   img.col-12.col-md-6.col-lg-6.img-fluid(src=bigPic)
-              .col-2 
-                span.badge.badge-pill.badge-default.float-right verified
+              .col-2
+                +verified(sighting.verifiedBy)
             .row
               p.col-10.sighting #{sighting.text}
 
