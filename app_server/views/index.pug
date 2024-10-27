@@ -2,6 +2,7 @@ extends layout
 include mixins/badges.pug
 
 block content
+  script(src='/javascripts/geolocation.js')
   .row.banner 
     .col-12 
       h2 #{pageHeader.title}
@@ -31,6 +32,7 @@ block content
                   img.col-12.col-md-6.col-lg-6.img-fluid(src=bigPic)
               .col-2
                 +verified(sighting.verifiedBy)
+                //+getDistance(sighting.coords[0], sighting.coords[1])
             .row
               p.col-10.sighting #{sighting.text}
 

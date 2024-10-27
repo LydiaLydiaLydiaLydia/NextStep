@@ -16,10 +16,3 @@ function distance(lon1, lat1, lon2, lat2) {
       return this * Math.PI / 180;
     }
   }
-  
-  window.navigator.geolocation.getCurrentPosition(function(pos) {
-    console.log(pos); 
-    console.log(
-      distance(pos.coords.longitude, pos.coords.latitude, 42.37, 71.03)
-    ); 
-  });

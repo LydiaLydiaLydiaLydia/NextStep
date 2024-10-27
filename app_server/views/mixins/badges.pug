@@ -1,3 +1,12 @@
 mixin verified(verifiedBy) 
     if (verifiedBy.length > 0)
         span.badge.badge-pill.badge-default.float-right verified
+
+mixin getDistance(lat, long)
+    span.badge.badge-pill.badge-default.float-right#distancio
+    script.
+        window.navigator.geolocation.getCurrentPosition(function(pos) {
+        var badgeDist = distance(pos.coords.longitude, pos.coords.latitude, !{long}, !{lat});
+        console.log("distance in km: " + badgeDist);
+        document.getElementById("distancio").innerHTML = badgeDist;
+        });

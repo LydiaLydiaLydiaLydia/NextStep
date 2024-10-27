@@ -12,6 +12,10 @@ const accountSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    profilePic: {
+        data: Buffer,
+        contentType: String
+    }
 })
 const sightingsSchema = new mongoose.Schema({
     title: {
@@ -32,10 +36,6 @@ const sightingsSchema = new mongoose.Schema({
         index: '2dsphere'
     },
     verifiedBy: [accountSchema],
-    profilePic: {
-        data: Buffer,
-        contentType: String
-    },
     bigPics: [
         {
             data: Buffer,
