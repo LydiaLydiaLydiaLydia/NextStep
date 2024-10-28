@@ -1,4 +1,3 @@
-@import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
 h1, h2, h3, h4, h5, h6 {
 font-family: 'courier', monospace;
 }
@@ -11,7 +10,7 @@ legend {
 font-family: 'courier', monospace;
 }
 body {
-font-family: "Cabin", Arial, sans-serif;
+font-family: 'Courier New', Courier, monospace;
 color: #ffffff;
 background-color: #0d7045;
 }
@@ -44,5 +43,8 @@ img{
     margin-bottom: 1%;
     padding-left:1%;
     box-shadow: 0 4px 4px 0 rgb(7, 8, 4), 0 4px 4px 0 rgb(7, 8, 4);
+}
+.subh2{
+    font-weight: bold;
 }
 

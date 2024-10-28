@@ -1,7 +1,7 @@
 /* GET home page */
 const sightings = function(req, res){
     res.render('index', { 
-        title: 'Next Step',
+        title: 'Sightings',
         pageHeader:{
             title: 'The Bigfoot Tracking App',
             strapline: 'Figure out his Next Step'
