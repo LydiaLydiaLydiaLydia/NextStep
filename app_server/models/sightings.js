@@ -29,13 +29,18 @@ const sightingsSchema = new mongoose.Schema({
     text: String,
     timePosted: {
         type: Date,
-        'default': Date.now
+        'default': Date.now,
+        required: true
     },
     coords: {
         type: [Number],
         index: '2dsphere'
     },
     verifiedBy: [accountSchema],
+    mainPic: {
+        data: Buffer,
+        contentType: String
+    },
     bigPics: [
         {
             data: Buffer,

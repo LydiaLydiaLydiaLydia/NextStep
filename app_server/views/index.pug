@@ -9,30 +9,32 @@ block content
         small.subh2 #{pageHeader.strapline}
   .container 
     .row
-      .col-12.col-md-2.col-lg-2
-        .dropdown 
-          button.btn.btn-secondary.dropdown-toggle(data-bs-toggle="dropdown" type = "button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Order by 
+      .col-12.col-lg-2
+        .dropdown
+          button.btn.btn-secondary.dropdown-toggle(data-bs-toggle="dropdown" type = "button" 
+          id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" 
+          aria-expanded="false") Order by 
             .dropdown-menu(aria-labelledby="dropdownMenuButton")
               .dropdown-item Most recent 
               .dropdown-item Verified
-      .col-12.col-md-10.col-lg-10
-      each sighting in sightings
-        .card 
-          .card-block 
-            .row 
-              .col-10 
-                h4 #{sighting.title} 
-              .col-2 
-                img.img-fluid.rounded-circle(src=sighting.profilePic)
-                p.username #{sighting.username} 
-            .row 
-              .col-10
-                img.col-12.img-fluid(src=sighting.mainPic)
-                each bigPic in sighting.bigPics
-                  img.col-12.col-md-6.col-lg-6.img-fluid(src=bigPic)
-              .col-2
-                +verified(sighting.verifiedBy)
-                //+getDistance(sighting.coords[0], sighting.coords[1])
-            .row
-              p.col-10.sighting #{sighting.text}
+      .col-12.col-lg-10
+        each sighting in sightings
+          .card 
+            .card-block 
+              .row 
+                .col-10 
+                  h4 #{sighting.title} 
+                .col-2 
+                  img.img-fluid.rounded-circle(src=sighting.profilePic)
+                  p.username #{sighting.username} 
+              .row 
+                .col-10
+                  img.col-12.img-fluid(src=sighting.mainPic)
+                  each bigPic in sighting.bigPics
+                    img.col-12.col-md-6.col-lg-6.img-fluid(src=bigPic)
+                .col-2
+                  +verified(sighting.verifiedBy)
+                  //+getDistance(sighting.coords[0], sighting.coords[1])
+              .row
+                p.col-10.sighting #{sighting.text}
 
