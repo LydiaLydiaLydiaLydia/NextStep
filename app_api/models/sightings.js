@@ -49,3 +49,4 @@ const sightingsSchema = new mongoose.Schema({
     ]
 });
 mongoose.model('Sighting', sightingsSchema);
+mongoose.model('Account', accountSchema);

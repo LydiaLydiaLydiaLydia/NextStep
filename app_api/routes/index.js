@@ -16,7 +16,9 @@ router
     .get(ctrlSightings.sightingsFindOne);
 
 router
-    .route('/accounts')
+    .route('/accounts/register')
     .post(ctrlAccounts.accountsCreate);
-
+router
+    .route('/accounts/login')
+    .post(ctrlAccounts.accountsLogin);
 module.exports = router;
