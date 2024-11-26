@@ -6,7 +6,7 @@ export class Sighting {
   text!: string;
   timePosted!: Date;
   coords!: number[];
-  verifiedBy!: string;
+  verifiedBy!: string[];
   mainPic!: string;
   bigPics!: string[];
 }
@@ -21,16 +21,28 @@ export class Sighting {
 export class SightingsComponent implements OnInit{
   constructor() {}
   
-  sighting: Sighting = {
-    title: "Old Copper Mine",
-    postedBy: 'BigSearcher12',
-    text: 'Bigfoot, also commonly referred to as Sasquatch, is a large and hairy human-like mythical creature said to inhabit forests in North America, particularly in the Pacific Northwest. Bigfoot is featured in both American and Canadian folklore, and since the mid-20th century has grown into a cultural icon, permeating popular culture and becoming the subject of its own distinct subculture.',
-    timePosted: new Date("20:52 27 October 2024"),
-    coords: [0,0],
-    verifiedBy: "FootFinder64",
-    mainPic: '',
-    bigPics: []
-  }
+  sightings: Sighting[] = [
+    {
+      title: "Old Copper Mine",
+      postedBy: 'BigSearcher12',
+      text: 'Bigfoot, also commonly referred to as Sasquatch, is a large and hairy human-like mythical creature said to inhabit forests in North America, particularly in the Pacific Northwest. Bigfoot is featured in both American and Canadian folklore, and since the mid-20th century has grown into a cultural icon, permeating popular culture and becoming the subject of its own distinct subculture.',
+      timePosted: new Date("20:52 27 October 2024"),
+      coords: [0,0],
+      verifiedBy: ["FootFinder64"],
+      mainPic: '',
+      bigPics: []
+    },
+    {
+      title: "Old Copper Mine, again",
+      postedBy: 'BigSearcher12',
+      text: 'Bigfoots, also commonly referred to as Sasquatch, is a large and hairy human-like mythical creature said to inhabit forests in North America, particularly in the Pacific Northwest. Bigfoot is featured in both American and Canadian folklore, and since the mid-20th century has grown into a cultural icon, permeating popular culture and becoming the subject of its own distinct subculture.',
+      timePosted: new Date("20:52 27 October 2024"),
+      coords: [0,0],
+      verifiedBy: [],
+      mainPic: '',
+      bigPics: []
+    }
+  ]
 
   ngOnInit(){}
 }
