@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NextstepDataService } from '../nextstep-data.service';
 
 export class Sighting {
   title!: string;
@@ -16,33 +17,24 @@ export class Sighting {
   standalone: false,
   
   templateUrl: './sightings.component.html',
-  styleUrl: './sightings.component.css'
+  styleUrl: './sightings.component.css',
+
+  providers: [NextstepDataService]
 })
 export class SightingsComponent implements OnInit{
-  constructor() {}
+  constructor(private nextStepDataService: NextstepDataService) {}
   
-  sightings: Sighting[] = [
-    {
-      title: "Old Copper Mine",
-      postedBy: 'BigSearcher12',
-      text: 'Bigfoot, also commonly referred to as Sasquatch, is a large and hairy human-like mythical creature said to inhabit forests in North America, particularly in the Pacific Northwest. Bigfoot is featured in both American and Canadian folklore, and since the mid-20th century has grown into a cultural icon, permeating popular culture and becoming the subject of its own distinct subculture.',
-      timePosted: new Date("20:52 27 October 2024"),
-      coords: [0,0],
-      verifiedBy: ["FootFinder64"],
-      mainPic: '',
-      bigPics: []
-    },
-    {
-      title: "Old Copper Mine, again",
-      postedBy: 'BigSearcher12',
-      text: 'Bigfoots, also commonly referred to as Sasquatch, is a large and hairy human-like mythical creature said to inhabit forests in North America, particularly in the Pacific Northwest. Bigfoot is featured in both American and Canadian folklore, and since the mid-20th century has grown into a cultural icon, permeating popular culture and becoming the subject of its own distinct subculture.',
-      timePosted: new Date("20:52 27 October 2024"),
-      coords: [0,0],
-      verifiedBy: [],
-      mainPic: '',
-      bigPics: []
-    }
-  ]
+  sightings!: Sighting[];
+  
+  private getSightings(): void {
+    this.nextStepDataService
+      .getSightings()
+      .then(foundSightings => {
+        this.sightings = foundSightings;
+      });
+  }
 
-  ngOnInit(){}
+  ngOnInit(){
+    this.getSightings();
+  }
 }

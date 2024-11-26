@@ -9,10 +9,10 @@ export class NextstepDataService {
 
   constructor(private http: HttpClient) { }
 
-  private apiBaseUrl = 'http://localhost:3000/api/';
+  private apiBaseUrl = 'http://localhost:3000/api';
 
   public getSightings(): Promise<Sighting[]> {
-		const url: string = '${this.apiBaseUrl}/sightings?'; 
+		const url: string = `${this.apiBaseUrl}/sightings`; 
 		return this.http 
 		.get(url) 
 		.toPromise() 
