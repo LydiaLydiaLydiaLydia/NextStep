@@ -1,0 +1,26 @@
+extends layout
+include mixins/badges.pug
+
+block content
+  script(src='/javascripts/geolocation.js')
+  .row.banner 
+    .col-12 
+      h2 #{pageHeader.title}&nbsp
+        small.subh2 #{pageHeader.strapline}
+  .container 
+    .row
+      .col-12.col-lg-2
+        .dropdown
+          button.btn.btn-secondary.dropdown-toggle(data-bs-toggle="dropdown" type = "button" 
+          id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" 
+          aria-expanded="false") Order by 
+            .dropdown-menu(aria-labelledby="dropdownMenuButton")
+              .dropdown-item Most recent 
+              .dropdown-item Verified
+      .col-12.col-lg-10
+      .error=message 
+
+      app-sightings Loading
+block scripts 
+  script(src='/build/polyfills-FFHMD2TL.js')
+  script(src='/build/main-3DB767IB.js')
