@@ -7,7 +7,8 @@ if (process.env.NODE_ENV === 'production'){
 }
 
 const _renderHomepage = function(req, res, responseBody){
-    res.render('sightings', { 
+    res.render('sightings', {
+        user : req.user, 
         title: 'Sightings',
         pageHeader:{
             title: 'The Bigfoot Tracking App',

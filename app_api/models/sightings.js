@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
+
 const accountSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -48,5 +50,8 @@ const sightingsSchema = new mongoose.Schema({
         }
     ]
 });
+
+accountSchema.plugin(passportLocalMongoose);
+
 mongoose.model('Sighting', sightingsSchema);
 mongoose.model('Account', accountSchema);

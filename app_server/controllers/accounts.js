@@ -1,6 +1,7 @@
 /* GET login page */
 const login = function(req, res){
-    res.render('account', { 
+    res.render('login', {
+        user: req.user,
         title: 'Log In',
         subtitle: 'Log in to jump into a world of squatch',
         message: 'Not a member?',
@@ -8,12 +9,11 @@ const login = function(req, res){
             text: 'Click here to Register',
             link: '/register/'
         },
-        isReg: false
     });
 };
 /* GET register page */
 const register = function(req, res){
-    res.render('account', { 
+    res.render('register', { 
         title: 'Register',
         subtitle: 'Register to jump into a world of squatch',
         message: 'Already a member?',
@@ -21,7 +21,6 @@ const register = function(req, res){
             text: 'Click here to Log In',
             link: '/login/'
         },
-        isReg: true
     });
 };
 module.exports = {
