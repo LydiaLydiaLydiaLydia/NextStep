@@ -4,10 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var favicon = require('serve-favicon');
+var bodyParser = require('body-parser');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+
 require('./app_api/models/db');
 
 var indexRouter = require('./app_server/routes/index');
 const apiRouter = require('./app_api/routes/index');
+const { default: mongoose } = require('mongoose');
 
 
 
@@ -21,6 +28,20 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(require('express-session')({
+  secret: 'lydialydialydia',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(flash());
+app.use(passport.session());
+
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'app_public')));
 
@@ -32,6 +53,11 @@ app.use('/api', function(req, res, next) {
   
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
+
+var Account = require('./app_api/models/sightings.js').Account;
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,4 +75,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+
+module.exports = app, passport;

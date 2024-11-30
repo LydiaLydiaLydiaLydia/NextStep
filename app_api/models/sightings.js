@@ -51,7 +51,13 @@ const sightingsSchema = new mongoose.Schema({
     ]
 });
 
+sightingsSchema.plugin(passportLocalMongoose);
 accountSchema.plugin(passportLocalMongoose);
 
-mongoose.model('Sighting', sightingsSchema);
-mongoose.model('Account', accountSchema);
+var Sighting = mongoose.model('Sighting', sightingsSchema);
+var Account = mongoose.model('Account', accountSchema);
+
+module.exports = {
+    Sighting,
+    Account
+};
