@@ -11,12 +11,8 @@ const accountSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    profilePic: {
-        data: Buffer,
-        contentType: String
     }
-})
+});
 const sightingsSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -48,5 +44,10 @@ const sightingsSchema = new mongoose.Schema({
         }
     ]
 });
-mongoose.model('Sighting', sightingsSchema);
-mongoose.model('Account', accountSchema);
+var Sighting = mongoose.model('Sighting', sightingsSchema);
+var Account = mongoose.model('Account', accountSchema);
+
+module.export = {
+    Sighting,
+    Account
+};

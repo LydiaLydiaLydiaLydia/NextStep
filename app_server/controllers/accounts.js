@@ -1,6 +1,45 @@
+const request = require('request');
+const apiOptions = {
+    server: 'http://localhost:3000'
+};
+if (process.env.NODE_ENV === 'production'){
+    apiOptions.server = 'https://nextstep-2ngy.onrender.com';
+}
+
+const _renderLogin = function(req, res, responseBody){
+    res.render('login', { 
+        title: 'Logged In',
+        subtitle: '',
+        message: '',
+        link: {
+            text: '',
+            link: ''
+        },
+        isLoggedIn: true
+    });
+}
+
+/* Logging in */
+const loggingIn = function(req, res){
+    const path = '/api/accounts/login';
+    const requestOptions = {
+        url : apiOptions.server + path,
+        method: 'POST',
+        json: {
+            "username" : req.body.username,
+            "password" : req.body.password
+        },
+        qs : {}
+    };
+    request(requestOptions, (err, response, body) => {
+        _renderLogin(req, res, body);
+    })
+};
+
+
 /* GET login page */
 const login = function(req, res){
-    res.render('account', { 
+    res.render('login', { 
         title: 'Log In',
         subtitle: 'Log in to jump into a world of squatch',
         message: 'Not a member?',
@@ -26,5 +65,6 @@ const register = function(req, res){
 };
 module.exports = {
     login,
-    register
+    register,
+    loggingIn
 };
