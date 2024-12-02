@@ -21,16 +21,30 @@ const login = function(req, res){
 };
 
 const _renderLogin = function(req, res, responseBody){
-    res.render('login', { 
-        title: 'Logged In',
-        subtitle: responseBody.status,
-        message: '',
-        link: {
-            text: '',
-            link: ''
-        },
-        isLoggedIn: true
-    });
+    if(responseBody.loggedIn === 1){
+        res.render('login', { 
+            title: "Logged In! (srsly)",
+            subtitle: responseBody.message,
+            message: '',
+            link: {
+                text: '',
+                link: ''
+            },
+            isLoggedIn: true
+        });
+    }else{
+        res.render('login', { 
+            title: "Login",
+            subtitle: responseBody.message,
+            message: '',
+            link: {
+                text: '',
+                link: ''
+            },
+            isLoggedIn: false
+        });
+    }
+        
 }
 
 /* Logging in */

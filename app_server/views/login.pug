@@ -10,8 +10,6 @@ mixin loggedIn(isLoggedIn)
                             label(for="userPassword")
                             input.form-control#userPassword(type = "password" placeholder="Password" name = "password")
                         button.btn.btn-primary(type="submit") #{title}
-    else 
-        p You are already logged in
 
 block content 
     .container

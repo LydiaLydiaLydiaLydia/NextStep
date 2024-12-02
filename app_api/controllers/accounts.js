@@ -39,18 +39,25 @@ const accountsLogin = function(req, res) {
                     res
                         .status(404)
                         .json({
-                            "message" : "Account not found"
+                            "message" : "Account not found",
+                            "loggedIn": 0
                         });
                     return;
                 } else if (err) {
                     res
                         .status(404)
-                        .json(err);
+                        .json({
+                            "message" : err,
+                            "loggedIn" : 0
+                        });
                     return;
                 }
                 res
                     .status(200)
-                    .json(account);
+                    .json({
+                        "message": "You are now logged in",
+                        "loggedIn" : 1
+                    });
             });
     } else {
         res
