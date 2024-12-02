@@ -10,5 +10,6 @@ router.get('/', ctrlData.sightings);
 router.get('/register', ctrlAccounts.register);
 router.get('/login', ctrlAccounts.login);
 router.post('/loggingIn', ctrlAccounts.loggingIn);
+router.post('/registering', ctrlAccounts.registering);
 
 module.exports = router;
