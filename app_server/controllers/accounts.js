@@ -23,9 +23,9 @@ const login = function(req, res){
 const _renderLogin = function(req, res, responseBody){
     if(responseBody.loggedIn === 1){
         res.render('login', { 
-            title: "Logged In! (srsly)",
-            subtitle: responseBody.message,
-            message: '',
+            title: "Logged In!",
+            subtitle: '',
+            message: responseBody.message,
             link: {
                 text: '',
                 link: ''
@@ -35,8 +35,8 @@ const _renderLogin = function(req, res, responseBody){
     }else{
         res.render('login', { 
             title: "Login",
-            subtitle: responseBody.message,
-            message: '',
+            subtitle: '',
+            message: responseBody.message,
             link: {
                 text: '',
                 link: ''
@@ -79,16 +79,29 @@ const register = function(req, res){
 };
 
 const _renderRegister = function(req, res, responseBody){
-    res.render('register', { 
-        title: 'Logged In',
-        subtitle: '',
-        message: '',
-        link: {
-            text: '',
-            link: ''
-        },
-        isLoggedIn: true
-    });
+    if(responseBody.loggedIn === 1){
+        res.render('register', { 
+            title: 'Registered and Logged In',
+            subtitle: '',
+            message: responseBody.message,
+            link: {
+                text: '',
+                link: ''
+            },
+            isLoggedIn: true
+        });
+    }else{
+        res.render('register', { 
+            title: 'Failed to Register',
+            subtitle: '',
+            message: responseBody.message,
+            link: {
+                text: '',
+                link: ''
+            },
+            isLoggedIn: false
+        });
+    }
 };
 
 const registering = function(req, res){

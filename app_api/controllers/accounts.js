@@ -14,18 +14,25 @@ const accountsCreate = function (req, res) {
                 if(err){
                     res
                         .status(400)
-                        .json(err);
+                        .json({
+                            "message" : err,
+                            "loggedIn" : 0
+                });
                 } else {
                     res
                         .status(200)
-                        .json(account);
+                        .json({
+                            "message" : "You are registered and logged in",
+                            "loggedIn" : 1
+                        });
                 }
             });
     }else {
         res
             .status(404)
             .json({
-                "message" : "No username and/or password and/or email in request"
+                "message" : "No username and/or password and/or email in request",
+                "loggedIn" : 0
             });
     }
 };  
@@ -63,7 +70,8 @@ const accountsLogin = function(req, res) {
         res
             .status(404)
             .json({
-                "message" : "No username and/or password in request"
+                "message" : "No username and/or password in request",
+                "loggedIn" : 0
             });
     }
 }
