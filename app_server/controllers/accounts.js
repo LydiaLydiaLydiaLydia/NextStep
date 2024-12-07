@@ -34,7 +34,7 @@ const _renderLogin = function(req, res, responseBody){
     
 };
 
-const login = function(req, res){
+const login = function(req, res, next){
     if(req.method === 'GET'){
         responseBody = null;
         _renderLogin(req, res, responseBody);
@@ -98,7 +98,7 @@ const _renderRegister = function(req, res, responseBody){
     }
 };
 
-const register = function(req, res){
+const register = function(req, res, next){
     if(req.method === 'GET'){
         responseBody = null;
         _renderRegister(req, res, responseBody);
