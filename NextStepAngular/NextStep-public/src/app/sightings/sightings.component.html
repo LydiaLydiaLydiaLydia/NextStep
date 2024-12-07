@@ -1,0 +1,24 @@
+<div *ngFor="let sighting of sightings" class="card"> 
+    <div class="card-block"> 
+        <div class="row"> 
+            <div class="col-10"> 
+                <h4>{{sighting.title}}</h4>
+            </div>
+            <div class="col-2"> 
+                <img class="img-fluid rounded-circle">
+                <p class="username"> </p>
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col-10">
+                <img class="col-12 img-fluid">
+            </div>
+            <div class="col-2">
+                <span class="badge badge-pill badge-default float-right">{{sighting.verifiedBy |verification}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <p class="col-10 sighting">{{sighting.text}}</p>
+        </div>
+    </div>
+</div>
