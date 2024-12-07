@@ -27,7 +27,22 @@ const sightings = function(req, res){
         qs : {}
     };
     request(requestOptions, (err, response, body) => {
-        _renderHomepage(req, res, body);
+
+        if (err) { 
+            res.render('error', {
+                title: 'Something\'s gone wrong'
+            });
+            console.log(err); 
+
+            } else if (response.statusCode === 200) { 
+                _renderHomepage(req, res, body); 
+
+            } else {
+                res.render('error', {
+                    title: 'Something\'s gone wrong'
+                }); 
+                console.log(response.statusCode); 
+            }
     })
 };
 module.exports = {

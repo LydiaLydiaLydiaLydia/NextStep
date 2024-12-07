@@ -7,9 +7,11 @@ const ctrlData = require('../controllers/data');
 /* Home/Sightings page */
 router.get('/', ctrlData.sightings);
 /* Accounts pages */
-router.get('/register', ctrlAccounts.register);
-router.get('/login', ctrlAccounts.login);
-router.post('/loggingIn', ctrlAccounts.loggingIn);
-router.post('/registering', ctrlAccounts.registering);
+router.route('/register')
+      .get(ctrlAccounts.register)
+      .post(ctrlAccounts.register);
+router.route('/login')
+      .get(ctrlAccounts.login)
+      .post(ctrlAccounts.login);
 
 module.exports = router;

@@ -4,13 +4,13 @@ mixin loggedIn(isLoggedIn)
     if (!isLoggedIn)
         .col-12.col-md-6
             .card
-                form(action = "/registering" method = "POST").col-12
+                form(action = "/register" method = "POST").col-12
                                 .form-group 
                                     label(for="userUsername")
                                     input.form-control#userUsername(type = "text" placeholder = "Username" name = "username")
                                 .form-group
                                     label(for="userEmail")
-                                    input.form-control#userUsername(type = "text" placeholder = "Email@site.com" name = "email")
+                                    input.form-control#userEmail(type = "text" placeholder = "Email@site.com" name = "email")
                                 .form-group
                                     label(for="userPassword")
                                     input.form-control#userPassword(type = "password" placeholder="Password" name = "password")
