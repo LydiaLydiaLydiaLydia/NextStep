@@ -47,7 +47,7 @@ const sightingsSchema = new mongoose.Schema({
 var Sighting = mongoose.model('Sighting', sightingsSchema);
 var Account = mongoose.model('Account', accountSchema);
 
-module.export = {
+module.exports = {
     Sighting,
     Account
 };
