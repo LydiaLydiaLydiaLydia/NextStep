@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'app_public')));
 
 app.use('/api', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', ['http://localhost:4200', 'https://localhost', 'http://localhost:8000', 'https://nextstep-2ngy.onrender.com']);
+  res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
