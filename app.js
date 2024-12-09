@@ -3,6 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+//ssl
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
+var privateKey = fs.readFileSync('./sslcert/key.pem', 'utf8');
+var certificate = fs.readFileSync('./sslcert/cert.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+
 
 require('./app_api/models/db');
 
@@ -12,6 +20,12 @@ const apiRouter = require('./app_api/routes/index');
 
 
 var app = express();
+
+//ssl
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+httpServer.listen(8000);
+httpsServer.listen(443);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
@@ -26,6 +40,11 @@ app.use(express.static(path.join(__dirname, 'app_public')));
 
 app.use('/api', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+app.use('/api', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'https://localhost');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
