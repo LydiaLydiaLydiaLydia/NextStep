@@ -61,3 +61,4 @@ typings/
 .next
 
 sslcert/csr.pem
+sslcert/key.pem
