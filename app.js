@@ -7,8 +7,8 @@ var logger = require('morgan');
 var fs = require('fs');
 var http = require('http');
 var https = require('https');
-var privateKey = fs.readFileSync('./sslcert/key.pem', 'utf8');
-var certificate = fs.readFileSync('./sslcert/cert.pem', 'utf8');
+var privateKey = fs.readFileSync('./etc/secrets/key.pem', 'utf8');
+var certificate = fs.readFileSync('./etc/secrets/cert.pem', 'utf8');
 var credentials = {key: privateKey, cert: certificate};
 
 

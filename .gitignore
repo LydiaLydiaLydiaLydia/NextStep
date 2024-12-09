@@ -60,5 +60,5 @@ typings/
 # next.js build output
 .next
 
-sslcert/csr.pem
-sslcert/key.pem
+etc/secrets/csr.pem
+etc/secrets/key.pem
