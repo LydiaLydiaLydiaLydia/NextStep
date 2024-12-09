@@ -13,7 +13,8 @@ const _renderHomepage = function(req, res, responseBody){
             title: 'The Bigfoot Tracking App',
             strapline: 'Figure out his Next Step'
         },
-        sightings: responseBody
+        sightings: responseBody,
+        user: req.user
     });
 }
 

@@ -4,7 +4,7 @@ mixin loggedIn(isLoggedIn)
     if (!isLoggedIn)
         .col-12.col-md-6
             .card
-                form(action = "/register" method = "POST").col-12
+                form(action = "/register" method = "post").col-12
                                 .form-group 
                                     label(for="userUsername")
                                     input.form-control#userUsername(type = "text" placeholder = "Username" name = "username")
@@ -23,7 +23,7 @@ block content
             .col-12.col-md-6
                 h3 #{subtitle} 
                 .card 
-                    h2 #{message}
+                    h2 Hey
                     a(href=link.link) #{link.text}
 
                 

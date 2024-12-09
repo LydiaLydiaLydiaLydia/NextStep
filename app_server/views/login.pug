@@ -4,7 +4,7 @@ mixin loggedIn(isLoggedIn)
     if (!isLoggedIn)
         .col-12.col-md-6
             .card
-                form(action = "/login/" method = "POST").col-12
+                form(action = "/login/" method = "post").col-12
                     .form-group 
                         label(for="userUsername")
                         input.form-control#userUsername(type = "text" placeholder = "Username" name = "username")

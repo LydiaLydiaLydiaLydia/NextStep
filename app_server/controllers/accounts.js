@@ -28,7 +28,8 @@ const _renderLogin = function(req, res, responseBody){
                 text: 'Click here to Register',
                 link: '/register/'
             },
-            isLoggedIn: false
+            isLoggedIn: false,
+            user: req.user
         });
     }
     
